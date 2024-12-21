@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+		<title>Piece by Piece</title>
+		<style>
+html, body, #canvas {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent; /* Ensure transparency */
+}
+
+body {
+	color: white;
+	background-color: transparent; /* Transparent background */
+	overflow: hidden;
+	touch-action: none;
+}
+
+#canvas {
+	display: block;
+	background-color: transparent; /* Transparent canvas */
+}
+
+#canvas:focus {
+	outline: none;
+}
+		</style>
+		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
+		<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
+	</head>
+	<body>
+		<canvas id="canvas">
+			Your browser does not support the canvas tag.
+		</canvas>
+
+		<noscript>
+			Your browser does not support JavaScript.
+		</noscript>
+
+		<script src="index.js"></script>
+		<script>
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":400976,"index.wasm":35376909},"focusCanvas":true,"gdextensionLibs":[]};
+const GODOT_THREADS_ENABLED = false;
+const engine = new Engine(GODOT_CONFIG);
+
+(function () {
+	engine.startGame({
+		'onInit': function () {
+			const canvas = document.getElementById('canvas');
+			const ctx = canvas.getContext('webgl', { alpha: true }) || canvas.getContext('webgl2', { alpha: true });
+			canvas.style.backgroundColor = 'transparent'; // Ensure canvas remains transparent
+		}
+	}).catch((err) => {
+		console.error('Failed to start the game:', err);
+	});
+}());
+		</script>
+	</body>
+</html>
